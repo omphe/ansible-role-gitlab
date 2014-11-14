@@ -6,7 +6,7 @@ external_url "{{ gitlab_external_url }}"
 
 {% if gitlab_apache_enabled %}
 nginx['enable'] = false
-web_server['external_users'] = ['www-data']
+web-server['external_users'] = ['www-data']
 {% endif %}
 nginx['redirect_http_to_https'] = {{ gitlab_redirect_http_to_https }}
 nginx['ssl_certificate'] = "{{ gitlab_ssl_certificate }}"
