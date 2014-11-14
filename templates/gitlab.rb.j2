@@ -4,7 +4,9 @@ external_url "{{ gitlab_external_url }}"
 # Whether to redirect http to https.
 
 
-{% if gitlab_apache_enabled %}nginx['enable'] = false{% endif %}
+{% if gitlab_apache_enabled %}
+nginx['enable'] = false
+{% endif %}
 nginx['redirect_http_to_https'] = {{ gitlab_redirect_http_to_https }}
 nginx['ssl_certificate'] = "{{ gitlab_ssl_certificate }}"
 nginx['ssl_certificate_key'] = "{{ gitlab_ssl_certificate_key }}"
