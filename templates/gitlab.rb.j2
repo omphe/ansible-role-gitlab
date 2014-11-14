@@ -2,9 +2,20 @@
 external_url "{{ gitlab_external_url }}"
 
 # Whether to redirect http to https.
+
+
+{% if gitlab_apache_enabled %}
+nginx['enabled'] = {{ gitlab_nginx_enabled }}
+web_server['external_users'] = ['www-data']
+{% endif %}
 nginx['redirect_http_to_https'] = {{ gitlab_redirect_http_to_https }}
 nginx['ssl_certificate'] = "{{ gitlab_ssl_certificate }}"
 nginx['ssl_certificate_key'] = "{{ gitlab_ssl_certificate_key }}"
+
+
+
+
+
 
 # The directory where Git repositories will be stored.
 git_data_dir "{{ gitlab_git_data_dir }}"
