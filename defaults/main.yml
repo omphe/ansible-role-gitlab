@@ -27,4 +27,4 @@ gitlab_ldap_base: "DC=example,DC=com"
 
 
 # webserver configuration
-gitlab_use_apache: false
+gitlab_apache_enabled: false
